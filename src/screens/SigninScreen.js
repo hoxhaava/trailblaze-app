@@ -5,8 +5,13 @@ import NavLink from "../components/NavLink";
 
 const SigninScreen = () => {
     return (
-        <View>
-            <AuthForm />
+        <View style={styles.container}>
+            <AuthForm
+                headerText="Sign In to Your Account"
+                errorMessage=""
+                onSubmit={() => { }}
+                submitButtonText="Sign In"
+            />
             <NavLink
                 text="Don't have an account? Sign up instead"
                 routeName="Signup" />
@@ -14,6 +19,18 @@ const SigninScreen = () => {
         )
 }
 
-const styles = StyleSheet.create({})
+SigninScreen.navigationOptions = () => {
+    return {
+        headerShown: false,
+    }
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        marginBottom: 250
+    }
+})
 
 export default SigninScreen
