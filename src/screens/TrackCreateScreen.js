@@ -1,15 +1,16 @@
 import '../_mockLocation'
 import React, { useContext } from "react";
 import { StyleSheet, SafeAreaView } from "react-native"
+import { withNavigationFocus } from 'react-navigation';
 import { Text } from "react-native-elements"
 import Map from "../components/Map"
 import { Context as LocationContext } from '../context/LocationContext'
 import useLocation from '../hooks/useLocation';
 
 
-const TrackCreateScreen = () => {
+const TrackCreateScreen = ({ isFocused }) => {
     const { addLocation } = useContext(LocationContext);
-    const [err] = useLocation(addLocation)
+    const [err] = useLocation(isFocused, addLocation)
     
     return (
         <SafeAreaView forceInset={{ top: "always" }}>
@@ -22,4 +23,4 @@ const TrackCreateScreen = () => {
 
 const styles = StyleSheet.create({});
 
-export default TrackCreateScreen;
+export default withNavigationFocus(TrackCreateScreen);
