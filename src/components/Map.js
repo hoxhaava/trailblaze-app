@@ -5,7 +5,7 @@ import { Context as LocationContext } from '../context/LocationContext'
 
 const Map = () => {
     const { state: { currentLocation } } = useContext(LocationContext)
-    console.log(state)
+    // console.log(currentLocationtest)
 
     if (!currentLocation) {
         return <ActivityIndicator size="large" style={{ marginTop:200 }} />
@@ -23,9 +23,7 @@ const Map = () => {
                 latitudeDelta: 0.01,
                 longitudeDelta: 0.01,
             }}
-        >
-
-        </MapView>
+        />
     )
 }
 

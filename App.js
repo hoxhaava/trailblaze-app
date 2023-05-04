@@ -36,8 +36,12 @@ export default () => {
   return (
     <LocationProvider>
       <AuthProvider>
-        <App ref={(navigator) => { setNavigator(navigator) }} />
+        <App
+          ref={(navigator) => {
+            setNavigator(navigator);
+          }}
+        />
       </AuthProvider>
     </LocationProvider>
-  )
-}
+  );
+};
