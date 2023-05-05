@@ -32,7 +32,13 @@ export default (shouldTrack, callback) => {
             subscriber.remove()
             setSubcriber(null)
         }
-    }, [shouldTrack]); //run the function if shouldTrack value changes
+
+        return () => {
+            if (subscriber) {
+                subscriber.remove()
+            }
+        }
+    }, [shouldTrack, callback]); //run the function if shouldTrack value changes
 
     return [err]
 }
